@@ -79,3 +79,55 @@ footer {
 @media (max-width: 480px) {
   header h1 { font-size: 2.6rem; }
 }
+
+/* Carta: nombre, línea punteada y precio alineado a la derecha */
+.carta li {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.carta li::after {
+  content: "";
+  order: 1;
+  flex: 1;
+  border-bottom: 2px dotted var(--linea);
+  transform: translateY(-4px);
+}
+
+.carta .precio {
+  order: 2;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Promociones: pizarra de cafetería */
+#promociones {
+  background-color: var(--pizarra);
+  color: var(--papel);
+  padding: 20px 24px;
+  margin: 24px 0 0;
+  border: 0;
+  border-radius: 2px;
+  outline: 3px solid var(--pizarra);
+  outline-offset: 4px;
+}
+
+#promociones h2 { color: #f0c987; }
+#promociones li::before { content: "– "; }
+
+/* Horarios */
+.horarios {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 4px 28px;
+  margin: 0;
+}
+
+.horarios dt { font-weight: 700; }
+.horarios dd { margin: 0; font-variant-numeric: tabular-nums; }
+
+@media (max-width: 480px) {
+  .horarios { grid-template-columns: 1fr; gap: 0; }
+  .horarios dd { margin-bottom: 8px; }
+}
